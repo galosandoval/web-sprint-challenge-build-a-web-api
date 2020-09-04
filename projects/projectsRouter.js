@@ -20,7 +20,7 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
-router.get("/:id/actions", validateProjectID, (req, res, next) => {
+router.get("/:id/actions", (req, res, next) => {
   const id = req.params.id
   projectsDB.getProjectActions(id)
   .then(actions => {

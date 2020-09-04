@@ -1,3 +1,5 @@
+*** Heres my link to the deployed app https://sprint-challenge-api-1.herokuapp.com/ ***
+
 # Sprint Challenge Instructions
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
