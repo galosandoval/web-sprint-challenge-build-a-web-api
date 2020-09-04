@@ -27,21 +27,38 @@ router.post('/', validateProject, (req, res) => {
     })
 })
 
-router.post("/:id/actions", (req, res, next) => {
-  const actions = req.body;
-  actions.project_id = req.params.id;
-  projectsDB.get(req.params.p_id).then((project) => {
-    project
-      ? actionsDB
-          .insert(actions)
-          .then((action) =>
-            action
-              ? res.status(201).json(action).end()
-              : res.status(500).json({ message: "There was a problem" }).end()
-          )
-      : res.status(404).json({ message: "Project not found" }).end();
-  });
-});
+// router.post("/:id/actions", (req, res, next) => {
+//   const actions = req.body;
+//   actions.project_id = req.params.id;
+//   projectsDB.get(req.params.p_id).then((project) => {
+//     project
+//       ? actionsDB
+//           .insert(actions)
+//           .then((action) =>
+//             action
+//               ? res.status(201).json(action).end()
+//               : res.status(500).json({ message: "There was a problem" }).end()
+//           )
+//       : res.status(404).json({ message: "Project not found" }).end();
+//   });
+// });
+
+router.put('/:id', validateProject, (req, res) => {
+  const change = req.body
+  const id = req.params.id
+  projectsDB.update(id, change)
+  .then(put => {
+    res.status(201).json(put)
+  })
+})
+
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id
+  projectsDB.remove(id)
+  .then(del => {
+    res.status(204).end()
+  })
+})
 
 // MiddleWare
 
