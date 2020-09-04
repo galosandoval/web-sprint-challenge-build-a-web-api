@@ -61,10 +61,34 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+
+- Node.js is a runtime environment (a program that runs other programs), a platform used to execute JavaScript applications outside the browser.
+- JavaScript on the server: use the same programming language and paradigm for both client and server. This minimizes context switching and makes it easy to share code between the client and the server.
+- Single-threaded: removes the complexity involved in handling multiple threads.
+- Asynchronous: can take full advantage of the processor it’s running on. This matters because the node process will be running on a single CPU.
+- Npm repository: access the largest ecosystem of useful libraries (most of them free to use) in the form of npm modules.
+
+- Express is like react for node, its features are :
+- routing
+- routers for application modularity
+- convenience helpers
+
 1. Understand and explain the use of Middleware?
+- Middleware literally means anything you put in the middle of one layer of the software and another. Express middleware are functions that execute during the lifecycle of a request to the Express server. Each middleware has access to the HTTP request and response for each route (or path) it's attached to.
 1. The basic principles of the REST architectural style.
+
+- RESTful Architectural Principles:
+- Addressable Resources. Every “thing” on your network should have an ID. With REST over HTTP, every object will have its own specific URI.
+- A Uniform, Constrained Interface. When applying REST over HTTP, stick to the methods provided by the protocol. This means following the meaning of GET, POST, PUT, and DELETE religiously.
+- Communicate statelessly. Stateless applications are easier to scale.
+
 1. Understand and explain the use of Express Routers.
+
+- I like to think of express routers as react for JS. It helps make a more modular application. Each broken up part can have its own endpoint and its own middleware
+
 1. Describe tooling used to manually test the correctness of an API.
+
+- postman is useful to use http requests from our newly created server
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
