@@ -17,13 +17,6 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
-  const id = req.body.project_id
-  
-  db.insert(req.body)
-  .then(action => {
-    res.status(201).json({message: 'successfully added action'})
-  })
-})
+
 
 module.exports = router;
