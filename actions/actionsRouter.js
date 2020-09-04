@@ -24,6 +24,23 @@ router.post('/', validateAction, (req, res, next) => {
   })
 })
 
+router.put('/:id', validateAction, (req, res, next) => {
+  const id = req.params.id
+  const change = req.body
+  actionsDB.update(id, change)
+  .then(change => {
+    res.status(201).json({change})
+  })
+})
+
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id
+  actionsDB.remove(id)
+  .then(del => {
+    res.status(204).end()
+  })
+})
+
 // Custom Middleware
 
 function validateAction(req, res, next) {

@@ -20,28 +20,21 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
+router.get('/:id/actions', (req, res, next) => {
+  req.params.id = req.body.project_id
+  req.params.project_id
+  projectsDB.getProjectActions(req.params.project_id).then(list => {
+    console.log('heres the id', req.project.id)
+    res.status(200).json(list)
+  })
+})
+
 router.post('/', validateProject, (req, res) => {
   projectsDB.insert(req.body)
     .then(post => {
       res.status(201).json(post)
     })
 })
-
-// router.post("/:id/actions", (req, res, next) => {
-//   const actions = req.body;
-//   actions.project_id = req.params.id;
-//   projectsDB.get(req.params.p_id).then((project) => {
-//     project
-//       ? actionsDB
-//           .insert(actions)
-//           .then((action) =>
-//             action
-//               ? res.status(201).json(action).end()
-//               : res.status(500).json({ message: "There was a problem" }).end()
-//           )
-//       : res.status(404).json({ message: "Project not found" }).end();
-//   });
-// });
 
 router.put('/:id', validateProject, (req, res) => {
   const change = req.body
